@@ -15,26 +15,26 @@
     {
         "Entry"
         {
+        "MsmKey" = "8:_25EDEE5AB050711AE86797BE7002747D"
+        "OwnerKey" = "8:_E3E6506D659D4AB68C85916F76075989"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_E3E6506D659D4AB68C85916F76075989"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_F89763E2C441FF9D9B09FB49135B593F"
-        "OwnerKey" = "8:_E3E6506D659D4AB68C85916F76075989"
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_25EDEE5AB050711AE86797BE7002747D"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_E3E6506D659D4AB68C85916F76075989"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_F89763E2C441FF9D9B09FB49135B593F"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -190,7 +190,7 @@
                 {
                 "Name" = "8:.NET Framework"
                 "Message" = "8:[VSDNETMSG]"
-                "Version" = "8:3.5.30729"
+                "FrameworkVersion" = "8:.NETFramework,Version=v3.5"
                 "AllowLaterVersions" = "11:FALSE"
                 "InstallUrl" = "8:http://go.microsoft.com/fwlink/?LinkId=76617"
                 }
@@ -198,14 +198,14 @@
         }
         "File"
         {
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_F89763E2C441FF9D9B09FB49135B593F"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_25EDEE5AB050711AE86797BE7002747D"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_F89763E2C441FF9D9B09FB49135B593F"
+                    "_25EDEE5AB050711AE86797BE7002747D"
                     {
                     "Name" = "8:log4net.dll"
                     "Attributes" = "3:512"
@@ -286,8 +286,9 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Log4net Remoting Server Service"
         "ProductCode" = "8:{4A800522-F7DF-4178-9D8D-56DB84ADAA52}"
-        "PackageCode" = "8:{EBD99DE9-D74E-4CDA-9EC5-6CA3238D791F}"
+        "PackageCode" = "8:{5C0CE58E-7041-4D13-890F-84796B3E5F5B}"
         "UpgradeCode" = "8:{3BD916CA-7FAD-468B-9545-8654A96C75F7}"
+        "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
@@ -705,7 +706,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_E3E6506D659D4AB68C85916F76075989"
             {
-            "SourcePath" = "8:..\\Log4netRemotingServerService\\obj\\Debug\\Log4netRemotingServerService.exe"
+            "SourcePath" = "8:..\\Log4netRemotingServerService\\obj\\Release\\Log4netRemotingServerService.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_2E11D72F49964B1AADF367F26D07516A"
