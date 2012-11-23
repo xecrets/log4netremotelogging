@@ -1,0 +1,6 @@
+syntax: glob
+*.DotSettings
+bin/*
+obj/*
+Debug/*
+Release/*
