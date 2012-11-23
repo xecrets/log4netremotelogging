@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Log4netRemotingServerService", "Log4netRemotingServerService\Log4netRemotingServerService.csproj", "{E3D030C3-EB96-43CD-B59D-0DE48A020AE0}"
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupLog4netRemotingServerService", "SetupLog4netRemotingServerService\SetupLog4netRemotingServerService.vdproj", "{D83C5800-DCC6-48D0-8A14-76B604A15FC1}"
