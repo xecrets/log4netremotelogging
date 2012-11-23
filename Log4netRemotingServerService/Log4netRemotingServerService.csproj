@@ -82,8 +82,8 @@
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
+  </Target>-->
+  <Target Name="AfterBuild" Condition=" '$(BuildingInsideVisualStudio)' != 'true' ">
+      <Exec WorkingDirectory="$(MSBuildProjectDirectory)\..\SetupLog4netRemotingServerService" Command="&quot;$(ProgramFiles)\Microsoft Visual Studio 10.0\Common7\IDE\devenv&quot; &quot;SetupLog4netRemotingServerService.vdproj&quot; /Build &quot;Release|Any CPU&quot;"/>
   </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
 </Project>
