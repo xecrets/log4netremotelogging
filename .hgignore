@@ -4,3 +4,5 @@ bin/*
 obj/*
 Debug/*
 Release/*
+Log4netRemotingServerService.v11.suo
+Log4netRemotingServerService/Log4netRemotingServerService.csproj.user
