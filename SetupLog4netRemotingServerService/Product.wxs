@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Product Id="*"
+           Name="log4net Remote Logging Service"
+           Language="1033"
+           Version="1.1.0.0"
+           Codepage="1252"
+           Manufacturer="Axantum Software AB"
+           UpgradeCode="dd301312-a660-429e-839b-a09b759ecb46">
+    <Package Id="*"
+             Keywords="log4net"
+             Description="A remote logging Windows service for log4net log consolidation."
+             Manufacturer="Axantum Software AB"
+             Languages="1033"
+             SummaryCodepage="1252"
+             InstallerVersion="200"
+             Compressed="yes"
+             InstallScope="perMachine" />
+
+    <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+    <MediaTemplate EmbedCab="yes" />
+    <Condition Message="You need to be an administrator to install this product.">
+      Privileged
+    </Condition>
+    
+    <Feature Id="ProductFeature"
+             Title="SetupLog4netRemotingServerService"
+             Level="1">
+      <ComponentGroupRef Id="ProductComponents" />
+    </Feature>
+  </Product>
+
+  <Fragment>
+    <Directory Id="TARGETDIR"
+               Name="SourceDir">
+      <Directory Id="ProgramFilesFolder">
+        <Directory Id="ProgramFilesAxantumFolder" Name="Axantum">
+          <Component Id="ProgramFilesManufacturerFolder"
+                     Guid="FABBA714-74D8-4029-AE92-3C5955187F61">
+            <RemoveFolder Id="ProgramFilesManufacturerFolder" On="uninstall"/>
+            <RegistryValue Root="HKLM"
+                           Key="Software\[Manufacturer]\[ProductName]"
+                           Name="ManufacturerFolder"
+                           Type="string"
+                           Value=""
+                           KeyPath="yes" />
+          </Component>
+          <Directory Id="INSTALLFOLDER"
+                     Name="SetupLog4netRemotingServerService">
+            <Component Id="ProgramFilesInstallFolder"
+                       Guid="14786D0C-764F-4969-A179-40CD703273D5">
+              <RemoveFile Id="DefaultLogFile" On="uninstall" Name="Log4net-log.txt" />
+              <RemoveFolder Id="ProgramFilesInstallFolder" On="uninstall"/>
+              <RegistryValue Root="HKLM"
+                             Key="Software\[Manufacturer]\[ProductName]"
+                             Type="string"
+                             Value=""
+                             KeyPath="yes" />
+            </Component>
+          </Directory>
+        </Directory>
+      </Directory>
+    </Directory>
+  </Fragment>
+
+  <Fragment>
+    <ComponentGroup Id="ProductComponents"
+                    Directory="INSTALLFOLDER">
+      <Component Id="ExeConfig"
+                 Guid="DCF60C20-E8D3-4BBD-BA21-BD7B49FE0B6E">
+        <File Id="Log4netRemotingServerService.exe.config"
+              Name="Log4netRemotingServerService.exe.config"
+              Source="Log4netRemotingServerService.exe.config"
+              KeyPath="yes" />
+      </Component>
+      <ComponentRef Id="ProgramFilesInstallFolder"/>
+      <ComponentRef Id="ProgramFilesManufacturerFolder"/>
+      <ComponentRef Id="ServiceExeComponent"/>
+      <ComponentRef Id="log4net"/>
+    </ComponentGroup>
+  </Fragment>
+
+  <Fragment>
+    <Component Id='ServiceExeComponent'
+               Directory='INSTALLFOLDER'
+               Guid='2E86F700-3DC5-4829-B8A8-6BD7CDB167E4'
+               SharedDllRefCount='no'
+               KeyPath='no'
+               NeverOverwrite='no'
+               Permanent='no'
+               Transitive='no'
+               Win64='no'
+               Location='either'>
+
+      <File Id='Log4netRemotingServerService.exe'
+            Name='Log4netRemotingServerService.exe'
+            Source='Log4netRemotingServerService.exe'
+            ReadOnly='no'
+            KeyPath='yes'
+            Vital='yes'
+            Hidden='no'
+            System='no'
+            Checksum='no' />
+
+      <ServiceInstall Id='MyServiceInstall'
+                      DisplayName='log4net Remote Logging Service'
+                       Description='Receive and remote logging events and log them locally. Do set REMOTELOG4NETLOGDIR environment variable to where the consolidated logs should go. See the config file for details.'
+                      Name='Log4netRemotingServerService'
+                      ErrorControl='normal'
+                      Start='auto'
+                      Type='ownProcess'
+                      Vital='yes' />
+
+      <ServiceControl Id='MyServiceControl'
+                      Name='Log4netRemotingServerService'
+                      Start='install'
+                      Stop='uninstall'
+                      Remove='uninstall' />
+
+    </Component>
+  </Fragment>
+
+  <Fragment>
+    <Component Id='log4net'
+               Guid='35868BF5-B09B-4BE6-893A-7EB062F8F2DD'
+               Directory='INSTALLFOLDER'>
+      <File Id='log4net.dll'
+            Name='log4net.dll'
+            Source='log4net.dll'
+            KeyPath='yes' />
+    </Component>
+  </Fragment>
+  
+  <Fragment>
+    <Feature Id="Complete"
+             Level="1">
+      <ComponentGroupRef Id="ProductComponents"/>
+    </Feature>
+  </Fragment>
+</Wix>
