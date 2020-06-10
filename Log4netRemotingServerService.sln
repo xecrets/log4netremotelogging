@@ -1,9 +1,14 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30204.135
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Log4netRemotingServerService", "Log4netRemotingServerService\Log4netRemotingServerService.csproj", "{E3D030C3-EB96-43CD-B59D-0DE48A020AE0}"
 EndProject
 Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "SetupLog4netRemotingServerService", "SetupLog4netRemotingServerService\SetupLog4netRemotingServerService.wixproj", "{D9110326-13A8-49B8-A1DC-C36C53AF183C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E3D030C3-EB96-43CD-B59D-0DE48A020AE0} = {E3D030C3-EB96-43CD-B59D-0DE48A020AE0}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,5 +43,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {518D1CA6-5BD2-488D-93D1-C7F90D6426D3}
 	EndGlobalSection
 EndGlobal
